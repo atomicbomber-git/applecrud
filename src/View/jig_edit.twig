@@ -1,0 +1,109 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Sunting Data Jalan, Irigasi dan Jaringan {% endblock %}
+{% block legend %} Sunting Data Jalan, Irigasi dan Jaringan {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/jalan_irigasi_jaringan/edit/{{ data.no }}">
+		<table>
+			<tr>
+				<td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input value='{{ data.jenis }}' type='text'  name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input value='{{ data.kode }}' type='text'  name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Register: </label> </td>
+				<td> <input value='{{ data.register }}' type='text'  name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Konstruksi: </label> </td>
+				<td> <input value='{{ data.konstruksi }}' type='text'  name='konstruksi'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Panjang (M): </label> </td>
+				<td> <input value='{{ data.panjang }}' type='text'  name='panjang'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Lebar (M): </label> </td>
+				<td> <input value='{{ data.lebar }}' type='text'  name='lebar'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas (M2): </label> </td>
+				<td> <input value='{{ data.luas }}' type='text'  name='luas'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Letak / Lokasi Alamat: </label> </td>
+				<td> <input value='{{ data.letak }}' type='text'  name='letak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tanggal: </label> </td>
+				<td> <input value='{{ data.tanggal }}' type='date'  name='tanggal'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor: </label> </td>
+				<td> <input value='{{ data.nomor }}' type='text'  name='nomor'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Status Tanah: </label> </td>
+				<td> <input value='{{ data.hak }}' type='text'  name='hak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> No. Kode Tanah: </label> </td>
+				<td> <input value='{{ data.no_kode_tanah }}' type='text'  name='no_kode_tanah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input value='{{ data.asal_usul }}' type='text'  name='asal_usul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Harga Perolehan: </label> </td>
+				<td> <input value='{{ data.harga }}' type='number'  name='harga'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input value='{{ data.nilai_buku }}' type='number' name='nilai_buku'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kondisi: </label> </td>
+				<td>
+					<select name="kondisi">
+						<option value='B' {% if data.kondisi == "B" %} selected {% endif %}> B </option>
+						<option value='KB' {% if data.kondisi == "KB" %} selected {% endif %}> KB </option>
+						<option value='RB' {% if data.kondisi == "RB" %} selected {% endif %}> RB </option>
+						<option value='-' {% if data.kondisi == "-" %} selected {% endif %}> - </option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Keterangan: </label> </td>
+				<td> <textarea name='keterangan'>{{ data.keterangan }}</textarea> </td>
+			</tr>
+		
+			<tr style="text-align: right"> 
+				<td colspan="2">
+					<a class='btn btn-danger' href='{{ base_url() }}/jalan_irigasi_jaringan/display_manage'> Kembali </a>
+					<input class='btn btn-primary' type='submit' value="Setujui">
+				</td>
+			</tr>		
+		</table>		
+	</form>
+{% endblock %}

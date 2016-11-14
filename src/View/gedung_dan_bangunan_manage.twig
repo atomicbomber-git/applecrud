@@ -1,0 +1,91 @@
+{% extends 'display_manage.twig' %}
+
+{% block title %} Kartu Inventaris Gedung dan Bangunan {% endblock %}
+
+{% block nama_kartu %}
+	Kartu Inventaris Gedung dan Bangunan
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<td rowspan="2"> Kendali </td>
+		<td rowspan="2"> Jenis Barang / Nama Barang </td>
+		<td rowspan="1" colspan="2"> Nomor </td>
+		<td rowspan="2"> Kondisi Bangunan (B, KB, RB) </td>
+		<td rowspan="1" colspan="2"> Konstruksi Bangunan </td>
+		<td rowspan="2"> Luas Lantai (M2) </td>
+		<td rowspan="2"> Letak / Lokasi Alamat </td>
+		<td rowspan="1" colspan="2"> Dokumen Gedung </td>
+		<td rowspan="2"> Luas (M2) </td>
+		<td rowspan="2"> Status Tanah (Hak) </td>
+		<td rowspan="2"> Nomor Kode Tanah </td>
+		<td rowspan="2"> Asal Usul </td>
+		<td rowspan="2"> Harga Perolehan </td>
+		<td rowspan="2"> Jumlah Penyusutan </td>
+		<td rowspan="2"> Nilai Buku </td>
+		<td rowspan="2"> Keterangan </td>
+	</tr>
+
+	<tr>
+		<td> Kode Barang </td>
+		<td> Register </td>
+
+		<td> Tingkat / Tidak </td>
+		<td> Beton / Tidak </td>
+
+		<td> Tanggal Pengadaan </td>
+		<td> Nomor </td>
+	</tr>
+
+	<tr>
+	{% for i in 1..19 %}
+		<td> {{ i }} </td>
+	{% endfor %}
+	</tr>
+
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td style="min-width: 150px">
+				<a href="{{ base_url() }}/gedung_dan_bangunan/photo/{{ row.no }}" class="btn btn-xs btn-warning"> Foto </a>
+				<a href="{{ base_url() }}/gedung_dan_bangunan/edit/{{ row.no }}" class="btn btn-xs btn-success"> Sunting </>
+				<a href="{{ base_url() }}/gedung_dan_bangunan/delete/{{ row.no }}" class="btn btn-xs btn-danger">
+					Hapus
+				</a>
+			</td>
+			<td> {{ row.jenis }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.register }} </td>
+			<td> {{ row.kondisi }} </td>
+			<td> {{ row.tingkat }} </td>
+			<td> {{ row.beton }} </td>
+			<td> {{ row.luas_lantai }} </td>
+			<td> {{ row.letak }} </td>
+			<td> {{ row.tanggal }} </td>
+			<td> {{ row.nomor }} </td>
+			<td> {{ row.luas }} </td>
+			<td> {{ row.hak }} </td>
+			<td> {{ row.no_kode_tanah }} </td>
+			<td> {{ row.asal_usul }} </td>
+			<td> {{ row.harga }} </td>
+			<td> {{ row.jumlah_penyusutan }} </td>
+			<td> {{ row.nilai_buku }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class='no_border' colspan="12"> </td>
+		<td class='no_border' style="font-weight: bold" colspan="3"> TOTAL: </td>
+		<td colspan="1"> {{ total.harga }} </td>
+		<td colspan="1"> {{ total.jumlah_penyusutan }} </td>
+		<td colspan="1"> {{ total.nilai_buku }} </td>
+	</tr>
+{% endblock %}
+
+{% block display_print_url %} {{ base_url() }}/gedung_dan_bangunan/display_print {% endblock %}
+{% block add_url %} {{ base_url() }}/gedung_dan_bangunan/add {% endblock %}

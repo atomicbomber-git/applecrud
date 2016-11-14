@@ -1,0 +1,77 @@
+{% extends 'display_print.twig' %}
+
+{% block name %} Kartu Inventaris Barang: E. Aset Tetap Lainnya {% endblock %}
+
+{% block card_name %}
+	E. ASET TETAP LAINNYA
+{% endblock %}
+
+{% block table_header %}
+
+	<tr>
+		<th rowspan="2"> No. </th>
+		<th rowspan="2"> Jenis Barang / Nama Barang </th>
+		<th rowspan="1" colspan="2"> Nomor </th>
+		<th rowspan="1" colspan="2"> Buku / Perpustakaan </th>
+		<th rowspan="1" colspan="3"> Barang Bercorak Kesenian / Kebudayaan </th>
+		<th rowspan="1" colspan="2"> Hewan / Ternak dan Tumbuhan </th>
+		<th rowspan="2"> Jumlah </th>
+		<th rowspan="2"> Tahun Cetak / Pembelian </th>
+		<th rowspan="2"> Asal Usul Cara Perolehan</th>
+		<th rowspan="2"> Harga Perolehan </th>
+		<th rowspan="2"> Nilai Buku </th>
+		<th rowspan="2"> Keterangan </th>
+	</tr>
+
+	<tr>
+		<th> Kode Barang </th>
+		<th> Register </th>
+		<th> Judul / Pencipta </th>
+		<th> Spesifikasi </th>
+		<th> Asal Daerah </th>
+		<th> Pencipta </th>
+		<th> Bahan </th>
+		<th> Jenis </th>
+		<th> Ukuran </th>
+	</tr>
+	
+	<tr>
+		{% for i in 1..17 %}
+			<th> {{ i }} </th>
+		{% endfor %}
+	</tr>
+
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td> {{ loop.index }}</td>
+			<td> {{ row.nama }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.register }} </td>
+			<td> {{ row.judul }} </td>
+			<td> {{ row.spesifikasi }} </td>
+			<td> {{ row.asal_daerah }} </td>
+			<td> {{ row.pencipta }} </td>
+			<td> {{ row.bahan }} </td>
+			<td> {{ row.jenis }} </td>
+			<td> {{ row.ukuran }} </td>
+			<td> {{ row.jumlah }} </td>
+			<td> {{ row.tahun }} </td>
+			<td> {{ row.asal_usul }} </td>
+			<td> {{ row.harga }} </td>
+			<td> {{ row.nilai }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class="no_border" colspan="11"> </td>
+		<td class="no_border" style="text-align: center; font-weight: bold" colspan="3"> TOTAL: </td>
+		<td> {{ total.harga }} </td>
+		<td> {{ total.nilai }} </td>
+	</tr>
+{% endblock %}

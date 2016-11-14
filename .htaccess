@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} "!/public"
+    RewriteCond %{REQUEST_URI} "!/uploads"
+    RewriteCond %{REQUEST_URI} "!/tbu"
+    RewriteRule ^ index.php [QSA,L]
+
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+</IfModule>

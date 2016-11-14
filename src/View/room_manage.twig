@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Kelola Daftar Ruangan </title>
+		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+
+		<style>
+			h1 {
+				text-align: center;
+			}
+
+			div.container {
+				width: 560px;
+			}
+
+			.room-table {
+				margin-top: 40px;
+			}
+
+			th, td {
+				text-align: center;
+			}
+
+			form {
+				margin-bottom: 20px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div class="container">
+
+			<h1> Kelola Ruangan </h1>
+
+			<div style="height: 420px; margin-bottom: 10px; overflow: scroll">
+				<table class="table table-striped room-table">
+					<thead>
+						<tr>
+							<th> Nama Ruangan </th>
+							<th> Kendali </th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for row in table %}
+						<tr>
+							<td> {{ row.name }} </td>
+							<td>
+								{% if is_logged_in %}
+								<a class="btn btn-xs btn-success" href="{{ base_url() }}/property/manage/{{ row.id }}"> Kelola Isi </a>
+								<a class="btn btn-xs btn-info" href="{{ base_url() }}/ruangan/edit_metadata/{{ row.id }}"> Kelola Info </a>
+								{% endif %}
+
+								<a class="btn btn-xs btn-warning" href="{{ base_url() }}/ruangan/print/{{ row.id }}"> Tampilan Cetak </a>
+
+								{% if is_logged_in %}
+								<a class="btn btn-xs btn-danger" href="{{ base_url() }}/ruangan/delete/{{ row.id }}"> Hapus </a>
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			
+			{% if is_logged_in %}
+			<form class="form-inline well" action="{{ base_url() }}/ruangan/add" method="POST">
+				<div class="form-group">
+					<label class='control-label'> Tambahkan Ruangan Baru: </label>
+					<input class="form-control" type="text" name="name" placeholder="Nama Ruangan">
+					<button class="btn btn-primary"> Tambahkan </button>
+				</div>
+			</form>
+			{% endif %}
+			
+			<div class="well">
+				<a class="btn btn-danger" href="{{ base_url() }}/"> Kembali </a>
+			</div>
+
+			{% if message.error %}
+				<div id="alert" class="alert alert-danger"> {{ message.error }} </div>
+			{% endif %}
+
+			{% if message.success %}
+				<div id="alert" class="alert alert-success"> {{ message.success }} </div>
+			{% endif %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+{% extends 'display_print.twig' %}
+
+{% block name %} Kartu Inventaris Barang: C. Gedung dan Bangunan {% endblock %}
+
+{% block card_name %}
+	C. GEDUNG DAN BANGUNAN
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th rowspan="2"> No. </th>
+		<th rowspan="2"> Jenis Barang / Nama Barang </th>
+		<th rowspan="1" colspan="2"> Nomor </th>
+		<th rowspan="2"> Kondisi Bangunan (B, KB, RB) </th>
+		<th rowspan="1" colspan="2"> Konstruksi Bangunan </th>
+		<th rowspan="2"> Luas Lantai (M2) </th>
+		<th rowspan="2"> Letak / Lokasi Alamat </th>
+		<th rowspan="1" colspan="2"> Dokumen Gedung </th>
+		<th rowspan="2"> Luas (M2) </th>
+		<th rowspan="2"> Status Tanah (Hak) </th>
+		<th rowspan="2"> Nomor Kode Tanah </th>
+		<th rowspan="2"> Asal Usul </th>
+		<th rowspan="2"> Harga Perolehan </th>
+		<th rowspan="2"> Jumlah Penyusutan </th>
+		<th rowspan="2"> Nilai Buku </th>
+		<th rowspan="2"> Keterangan </th>
+	</tr>
+
+	<tr>
+		<th> Kode Barang </th>
+		<th> Register </th>
+
+		<th> Tingkat / Tidak </th>
+		<th> Beton / Tidak </th>
+
+		<th> Tanggal Pengadaan </th>
+		<th> Nomor </th>
+	</tr>
+
+	<tr>
+	{% for i in 1..19 %}
+		<th> {{ i }} </th>
+	{% endfor %}
+	</tr>
+
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td> {{ loop.index }} </td>
+			<td> {{ row.jenis }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.register }} </td>
+			<td> {{ row.kondisi }} </td>
+			<td> {{ row.tingkat }} </td>
+			<td> {{ row.beton }} </td>
+			<td> {{ row.luas_lantai }} </td>
+			<td> {{ row.letak }} </td>
+			<td> {{ row.tanggal }} </td>
+			<td> {{ row.nomor }} </td>
+			<td> {{ row.luas }} </td>
+			<td> {{ row.hak }} </td>
+			<td> {{ row.no_kode_tanah }} </td>
+			<td> {{ row.asal_usul }} </td>
+			<td> {{ row.harga }} </td>
+			<td> {{ row.jumlah_penyusutan }} </td>
+			<td> {{ row.nilai_buku }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class='no_border' colspan="12"> </td>
+		<td class='no_border' style="font-weight: bold" colspan="3"> TOTAL: </td>
+		<td colspan="1"> {{ total.harga }} </td>
+		<td colspan="1"> {{ total.jumlah_penyusutan }} </td>
+		<td colspan="1"> {{ total.nilai_buku }} </td>
+	</tr>
+{% endblock %}

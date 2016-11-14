@@ -1,0 +1,16 @@
+{
+	"autoload": {
+        "psr-4": {
+            "App\\": "src/App"
+        }
+    },
+
+    "require": {
+        "slim/slim": "^3.5",
+        "slim/twig-view": "^2.1",
+        "illuminate/database": "^5.2",
+		"guzzlehttp/guzzle": "^6.2",
+        "rych/phpass": "3.0.*@beta",
+		"jenssegers/date": "^3.2"
+    }
+}

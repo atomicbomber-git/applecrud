@@ -1,0 +1,97 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Sunting Data Aset Tetap Lainnya {% endblock %}
+{% block legend %} Sunting Data Aset Tetap Lainnya  {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/aset_tetap_lainnya/edit/{{ data.no }}">
+		<table>
+			<tr>
+				<td> <label> Nama Barang: </label> </td>
+				<td> <input type='text'  value='{{data.nama}}'name='nama'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  value='{{data.kode}}'name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Register: </label> </td>
+				<td> <input type='text'  value='{{data.register}}'name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Judul / Pencipta: </label> </td>
+				<td> <input type='text'  value='{{data.judul}}'name='judul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Spesifikasi: </label> </td>
+				<td> <input type='text'  value='{{data.spesifikasi}}'name='spesifikasi'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal Daerah: </label> </td>
+				<td> <input type='text'  value='{{data.asal_daerah}}'name='asal_daerah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Pencipta: </label> </td>
+				<td> <input type='text'  value='{{data.pencipta}}'name='pencipta'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Bahan: </label> </td>
+				<td> <input type='text'  value='{{data.bahan}}'name='bahan'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Jenis: </label> </td>
+				<td> <input type='text'  value='{{data.jenis}}'name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Ukuran: </label> </td>
+				<td> <input type='text'  value='{{data.ukuran}}'name='ukuran'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Jumlah: </label> </td>
+				<td> <input type='number'  value='{{data.jumlah}}'name='jumlah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tahun Cetak: </label> </td>
+				<td> <input type='number'  value='{{data.tahun}}'name='tahun'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input type='text'  value='{{data.asal_usul}}'name='asal_usul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Harga: </label> </td>
+				<td> <input type='number'  value='{{data.harga}}'name='harga'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input type='number'  value='{{data.nilai}}'name='nilai'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Keterangan: </label> </td>
+				<td> <input type='text'  value='{{data.keterangan}}'name='keterangan'> </td>
+			</tr>
+		
+			<tr style="text-align: right"> 
+				<td colspan="2">
+					<a class='btn btn-danger' href='{{ base_url() }}/aset_tetap_lainnya/display_manage'> Kembali </a>
+					<input class='btn btn-primary' type='submit' value="Setujui">
+				</td>
+			</tr>		
+		</table>		
+	</form>
+{% endblock %}

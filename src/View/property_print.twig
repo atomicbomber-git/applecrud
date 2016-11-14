@@ -1,0 +1,42 @@
+{% extends 'display_print.twig' %}
+
+{% block name %} Kartu Inventaris Ruangan {% endblock %}
+
+{% block card_title %} KARTU INVENTARIS RUANGAN {{ room.name }} {% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th> Kendali </th>
+		<th> Nama Barang / Jenis Barang </th>
+		<th> Merk / Model </th>
+		<th> Tahun Pembelian </th>
+		<th> Kode Barang </th>
+		<th> Jumlah Barang </th>
+		<th> Keadaan Barang </th>
+		<th> Keterangan </th>
+	</tr>
+	
+	<tr>
+		{% for i in 1..8 %}
+			<th> {{ i }} </th>
+		{% endfor %}
+	</tr>
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td> {{ loop.index }}</td>
+			<td> {{ row.nama }} </td>
+			<td> {{ row.model }} </td>
+			<td> {{ row.tahun }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.jumlah }} </td>
+			<td> {{ row.keadaan }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+{% endblock %}

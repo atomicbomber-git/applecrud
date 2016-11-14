@@ -1,0 +1,65 @@
+{% extends 'display_print.twig' %}
+
+{% block name %} Kartu Inventaris Barang: A. Tanah {% endblock %}
+
+{% block card_name %}
+	A. TANAH
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th rowspan="3"> No. </th>		
+		<th rowspan="3">Jenis Barang / Nama Barang</th>		
+		<th rowspan="1" colspan="2">Nomor</th>		
+		<th rowspan="3">Luas (M2)</th>		
+		<th rowspan="3">Tahun Pengadaan</th>		
+		<th rowspan="3">Letak / Alamat</th>		
+		<th rowspan="1" colspan="3">Status Tanah</th>		
+		<th rowspan="3">Penggunaan</th>		
+		<th rowspan="3" ="5">Asal Usul</th>		
+		<th rowspan="3">Harga</th>		
+		<th rowspan="3">Keterangan</th>		
+	</tr>
+
+	<tr>
+		<th rowspan="2"> Kode Barang </th>
+		<th rowspan="2"> Register </th>
+		<th rowspan="2"> Hak </th>
+		<th colspan="2"> Sertifikat </th>
+	</tr>
+
+	<tr>
+		<th> Tanggal </th>
+		<th> Nomor </th>
+	</tr>
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td> {{ loop.index }} </td>
+			<td> {{ row.nama }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.register }} </td>
+			<td> {{ row.luas }} </td>
+			<td> {{ row.tahun }} </td>
+			<td> {{ row.letak }} </td>
+			<td> {{ row.hak }} </td>
+			<td> {{ row.tanggal }} </td>
+			<td> {{ row.nomor }} </td>
+			<td> {{ row.penggunaan }} </td>
+			<td> {{ row.asal_usul }} </td>
+			<td> {{ row.harga }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class='no_border' colspan="4"> </td>
+		<td colspan="1"> {{ total.luas }} </td>
+		<td class='no_border' colspan="7"> </td>
+		<td colspan="1"> {{ total.harga }} </td>
+	</tr>
+{% endblock %}

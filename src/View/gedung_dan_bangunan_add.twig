@@ -1,0 +1,122 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Gedung dan Bangunan {% endblock %}
+{% block legend %} Gedung dan Bangunan {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/gedung_dan_bangunan/add">
+		<table>			
+			<tr>
+				<td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input type='text'  name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor Register: </label> </td>
+				<td> <input type='text'  name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kondisi Bangunan: </label> </td>
+				<td>
+					<select name="kondisi">
+						<option value='B' > B </option>
+						<option value='KB' > KB </option>
+						<option value='RB' > RB</option>
+						<option value='-' > -</option>
+					</select>
+				</td> 
+			</tr>
+
+			<tr> 
+				<td> <label> Tingkat / Tidak: </label> </td>
+				<td>
+					<input type="radio" checked="checked" name="tingkat" value="1"> Ya
+					<input type="radio" name="tingkat" value="0"> Tidak
+					<input type="radio" name="tingkat" value="2"> - (Kosong)
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Beton / Tidak: </label> </td>
+				<td>
+					<input type="radio" checked="checked" name="beton" value="1"> Ya
+					<input type="radio" name="beton" value="0"> Tidak
+					<input type="radio" name="beton" value="2"> - (Kosong)
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas: </label> </td>
+				<td> <input type='text'  name='luas_lantai'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Letak / Alamat: </label> </td>
+				<td> <input type='text'  name='letak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tanggal Pengadaan: </label> </td>
+				<td> <input value="{{ date }}" type='date'  name='tanggal'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor: </label> </td>
+				<td> <input type='text'  name='nomor'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas (M2): </label> </td>
+				<td> <input type='number'  name='luas'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Status Tanah (Hak): </label> </td>
+				<td> <input type='text'  name='hak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor Kode Tanah: </label> </td>
+				<td> <input type='text'  name='no_kode_tanah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input type='text'  name='asal_usul'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Harga: </label> </td>
+				<td> <input type='number' name='harga'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Jumlah Penyusutan: </label> </td>
+				<td> <input type='number' name='jumlah_penyusutan'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input type='number' name='nilai_buku'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Keterangan: </label> </td>
+				<td> <textarea name='keterangan'></textarea> </td>
+			</tr>
+
+			<tr style="text-align: right"> 
+				<td colspan="2">
+					<a class='btn btn-danger' href='{{ base_url() }}/gedung_dan_bangunan/display_manage'> Kembali </a>
+					<input class='btn btn-primary' type='submit' value="Tambahkan Data">
+				</td>
+			</tr>		
+		</table>		
+	</form>
+{% endblock %}

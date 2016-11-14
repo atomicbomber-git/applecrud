@@ -1,0 +1,54 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Tambahkan Barang {% endblock %}
+{% block legend %} Tambahkan Barang {% endblock %}
+
+{% block form %}
+    <form method='POST' action="{{ base_url() }}/property/edit/{{ data.ruangan_id }}/{{ data.id }}">
+        
+        <div class='form-group'>
+            <label> Nama / Jenis Barang: </label>
+            <input class='form-control' type='text' value='{{ data.nama }}' name='nama'>
+        </div>
+
+        <div class='form-group'>
+            <label> Merk / Model: </label>
+            <input class='form-control' type='text' value='{{ data.model }}' name='model'>
+        </div>
+
+        <div class='form-group'>
+            <label> Tahun Pembelian: </label>
+            <input class='form-control' type='number' value='{{ data.tahun }}' name='tahun'>
+        </div>
+
+        <div class='form-group'>
+            <label> Kode Barang: </label>
+            <input class='form-control' type='text' value='{{ data.kode }}' name='kode'>
+        </div>
+
+        <div class='form-group'>
+            <label> Jumlah Barang: </label>
+            <input class='form-control' type='number' value='{{ data.jumlah }}' name='jumlah'>
+        </div>
+
+        <div class='form-group'>
+            <label> Keadaan Barang: </label>
+            <select class='form-control' name='keadaan'>
+                <option {% if data.keadaan == 'B' %} selected {% endif %} value='B'> B </option>
+                <option {% if data.keadaan == 'KB' %} selected {% endif %} value='KB'> KB </option>
+                <option {% if data.keadaan == 'RB' %} selected {% endif %} value='RB'> RB </option>
+                <option {% if data.keadaan == '-' %} selected {% endif %} value='-'> - </option>
+            </select>
+        </div>
+
+        <div class='form-group'>
+            <label> Keterangan: </label>
+            <textarea class='form-control' name='keterangan'>{{ data.keterangan }}</textarea>
+        </div>
+
+        <div class='form-group' style='text-align: right'>
+            <a class='btn btn-secondary' href='{{ base_url() }}/property/manage/{{ data.ruangan_id }}'> Kembali </a>
+            <input class='btn btn-primary' type='submit' value='Ubah Data'>
+        </div>
+    </form>
+{% endblock %}

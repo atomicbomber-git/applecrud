@@ -1,0 +1,54 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Sunting Barang {% endblock %}
+{% block legend %} Sunting Barang {% endblock %}
+
+{% block form %}
+    <form method='POST' action="{{ base_url() }}/property/add/{{ room_id }}">
+        
+        <div class='form-group'>
+            <label> Nama / Jenis Barang: </label>
+            <input class='form-control' type='text' name='nama'>
+        </div>
+
+        <div class='form-group'>
+            <label> Merk / Model: </label>
+            <input class='form-control' type='text' name='model'>
+        </div>
+
+        <div class='form-group'>
+            <label> Tahun Pembelian: </label>
+            <input class='form-control' type='number' name='tahun' value={{ current_year }}>
+        </div>
+
+        <div class='form-group'>
+            <label> Kode Barang: </label>
+            <input class='form-control' type='text' name='kode'>
+        </div>
+
+        <div class='form-group'>
+            <label> Jumlah Barang: </label>
+            <input class='form-control' type='number' name='jumlah'>
+        </div>
+
+        <div class='form-group'>
+            <label> Keadaan Barang: </label>
+            <select class='form-control' name='keadaan'>
+                <option value='B'> B </option>
+                <option value='KB'> KB </option>
+                <option value='RB'> RB </option>
+                <option value='-'> - </option>
+            </select>
+        </div>
+
+        <div class='form-group'>
+            <label> Keterangan: </label>
+            <textarea class='form-control' name='keterangan'></textarea>
+        </div>
+
+        <div class='form-group' style='text-align: right'>
+            <a class='btn btn-secondary' href='{{ base_url() }}/property/manage/{{ room_id }}'> Kembali </a>
+            <input class='btn btn-primary' type='submit' value='Tambahkan'>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Sistem Informasi Milik Barang Daerah </title>
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+
+	<style type="text/css">
+
+		body {
+			background: url("{{ base_url() }}/public/images/background.jpg");
+			background-size: 100% 100%;
+		}
+
+		div.title-container {
+			margin-top: 40px;
+			padding: 10px;
+			border-radius: 10px 10px 0px 0px;
+			background: darkred;
+			color: white;
+			text-align: center;
+		}
+
+		.main-container {
+			width: 700px;
+		}
+
+		nav {
+			padding-right: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container main-container">
+		<div class='title-container'>
+			<h1> Sistem Informasi Milik Barang Daerah </h1>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class='navbar-header'>
+				<a class='navbar-brand'> Menu Aplikasi: </a>
+			</div>
+
+			<form class='navbar-form navbar-right'>
+				{% if is_logged_in %}
+					<a href='{{ base_url() }}/edit_account' class="btn btn-info"> Sunting Akun </a>
+					<a href='{{ base_url() }}/logout' class="btn btn-danger"> Keluar </a>
+				{% else %}
+					<a href='{{ base_url() }}/login' class="btn btn-success"> Masuk </a>
+				{% endif %}
+			</form>		
+		</nav>
+
+		<div style="width: 40px"> </div>
+
+		<ul class='list-group'>
+			<li class='list-group-item'>
+				<h3> A. Kartu Inventaris Tanah </h3>
+
+				{% if is_logged_in %}
+					<a class='btn btn-primary' href="{{ base_url() }}/tanah/display_manage"> Kelola Isi Kartu </a>
+					<a class='btn btn-success' href="{{ base_url() }}/edit_metadata/1"> Kelola Data Mengenai Kartu </a>
+				{% endif %}
+				
+				<a class='btn btn-warning' href="{{ base_url() }}/tanah/display_print"> Tampilan Cetak Kartu </a>
+			</li>
+			<li class='list-group-item'> 
+				<h3> B. Kartu Inventaris Peralatan dan Mesin </h3> 
+				
+				{% if is_logged_in %} 
+					<a class='btn btn-primary' href="{{ base_url() }}/barang_dan_mesin/display_manage"> Kelola Isi Kartu </a>
+					<a class='btn btn-success' href="{{ base_url() }}/edit_metadata/2"> Kelola Data Mengenai Kartu </a>
+				{% endif %}
+				
+				<a class='btn btn-warning' href="{{ base_url() }}/barang_dan_mesin/display_print"> Tampilan Cetak Kartu </a>
+			</li>
+			<li class='list-group-item'> 
+				<h3> C. Kartu Inventaris Gedung dan Bangunan </h3>
+				
+				{% if is_logged_in %} 
+					<a class='btn btn-primary' href="{{ base_url() }}/gedung_dan_bangunan/display_manage"> Kelola Isi Kartu </a>
+					<a class='btn btn-success' href="{{ base_url() }}/edit_metadata/3"> Kelola Data Mengenai Kartu </a>
+				{% endif %}
+				
+				<a class='btn btn-warning' href="{{ base_url() }}/gedung_dan_bangunan/display_print"> Tampilan Cetak Kartu </a>
+			</li>
+			<li class='list-group-item'> 
+				<h3> D. Kartu Inventaris Jalan, Irigasi dan Jaringan </h3> 
+				
+				{% if is_logged_in %} 
+					<a class='btn btn-primary' href="{{ base_url() }}/jalan_irigasi_jaringan/display_manage"> Kelola Isi Kartu </a>
+					<a class='btn btn-success' href="{{ base_url() }}/edit_metadata/4"> Kelola Data Mengenai Kartu </a>
+				{% endif %}
+				
+				<a class='btn btn-warning' href="{{ base_url() }}/jalan_irigasi_jaringan/display_print"> Tampilan Cetak Kartu </a>
+			</li>
+			<li class='list-group-item'> 
+				<h3> E. Kartu Inventaris Aset Tetap Lainnya </h3> 
+				{% if is_logged_in %} 
+					<a class='btn btn-primary' href="{{ base_url() }}/aset_tetap_lainnya/display_manage"> Kelola Isi Kartu </a>
+					<a class='btn btn-success' href="{{ base_url() }}/edit_metadata/5"> Kelola Data Mengenai Kartu </a>
+				{% endif %}
+
+				<a class='btn btn-warning' href="{{ base_url() }}/aset_tetap_lainnya/display_print"> Tampilan Cetak Kartu </a>
+			</li>
+
+			<li class='list-group-item'> 
+				<h3> F. Kartu Inventaris Ruangan </h3> 
+				<a class='btn btn-info' href='{{ base_url() }}/ruangan/manage'> Kelola Daftar Ruangan </a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

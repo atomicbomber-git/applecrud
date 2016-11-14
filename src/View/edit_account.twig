@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Sunting Akun Admin </title>
+		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+
+		<style>
+			div.container {
+				/*width: 400px;*/
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class='container'>
+
+			<div style="height: 150px"> </div>
+
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+
+				<div class="col-md-4">
+					<fieldset>
+						<legend> Sunting Akun Admin </legend>
+						<form method="POST" action="{{ base_url() }}/edit_account">
+							<div class="form-group">
+								<label> Nama Pengguna Admin: </label>
+								<input class="form-control" type="text" name="username" placeholder="Nama pengguna" value="{{ old_username }}">		
+							</div>
+							<div class="form-group">
+								<label> Kata Sandi Baru: </label>
+								<input class="form-control" type="password" name="new_password" placeholder="Kata sandi baru">		
+							</div>
+							<div class="form-group">
+								<label> Kata Sandi Lama: </label>
+								<input class="form-control" type="password" name="old_password" placeholder="Kata sandi lama">		
+							</div>
+							<div class="form-group" style="text-align: right">
+								<a class="btn btn-secondary" href="/"> Kembali </a>
+								<button class="btn btn-primary"> Setujui Perubahan </button>
+							</div>
+						</form>
+
+						{% if success_message %}
+							<div class="alert alert-success"> {{ success_message }} </div>
+						{% endif %}
+
+						{% if error_message %}
+							<div class="alert alert-danger"> {{ error_message }} </div>
+						{% endif %}
+
+					</fieldset>
+				</div>
+
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>	
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Gambar Barang {% endblock %}
+{% block legend %} Gambar Barang {% endblock %}
+
+{% block form %}
+
+    {% if data.image %}
+        <img src="{{ base_url() }}/public/images/jij/{{ data.image }}" class="img-thumbnail">
+    {% else %}
+        <div class='alert alert-danger'> Belum ada Gambar yang Tersimpan. </div>
+    {% endif %}
+
+    <div style='height: 30px'> </div>
+
+    {% if message %}
+        <div class='alert alert-success'> {{ message }} </div>
+    {% endif %}
+
+    {% if error %}
+        <div class='alert alert-danger'> {{ error }} </div>
+    {% endif %}
+
+    {% if data.image %}
+        <a href='{{ base_url() }}/jalan_irigasi_jaringan/photo/delete/{{ data.no }}' class='btn btn-danger pull-right'> Hapus Gambar </a>  
+        <a href="{{ base_url() }}/jalan_irigasi_jaringan/display_manage" class='btn btn-secondary pull-right'> Kembali </a>
+    {% else %}
+        <form method='POST' action="{{ base_url() }}/jalan_irigasi_jaringan/photo/{{ data.no }}" enctype='multipart/form-data'>
+            <div class='form-group'>
+                <input type='file' name='picture'>  
+            </div>
+            <div class='form-group pull-right'>
+                <a href="{{ base_url() }}/jalan_irigasi_jaringan/display_manage" class='btn btn-secondary'> Kembali </a>
+                <input type='submit' class='btn btn-primary' value='Masukkan Gambar'>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}

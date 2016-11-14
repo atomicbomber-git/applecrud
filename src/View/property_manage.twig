@@ -1,0 +1,63 @@
+{% extends 'display_manage.twig' %}
+
+{% block nama_kartu %}
+	Kartu Inventaris Ruangan {{ room.name }}
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th> Kendali </th>
+		<th> Nama Barang / Jenis Barang </th>
+		<th> Merk / Model </th>
+		<th> Tahun Pembelian </th>
+		<th> Kode Barang </th>
+		<th> Jumlah Barang </th>
+		<th> Keadaan Barang </th>
+		<th> Keterangan </th>
+	</tr>
+	
+	<tr>
+		{% for i in 1..8 %}
+			<th> {{ i }} </th>
+		{% endfor %}
+	</tr>
+{% endblock %}
+
+{% block control_box %}
+	<div id="control-panel" class="well">
+		<form class="form-inline" action="{{ base_url() }}/ruangan/edit_name/{{ room.id }}" method="POST">
+			<div class="form-group">
+				<label class="control-label"> Ganti Nama Ruangan: </label>
+				<input class="form-control" type="text" placeholder="Nama Baru" name="name">
+				<button class="btn btn-primary"> Ganti </button>
+			</div>
+		</form>
+	</div>
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td style="min-width: 120px">
+				<a href="{{ base_url() }}/property/photo/{{ row.id }}" class="btn btn-xs btn-warning"> Foto </a>
+				<a href="{{ base_url() }}/property/edit/{{ room.id }}/{{ row.id }}" class="btn btn-xs btn-success"> Sunting </a>
+				<a href="{{ base_url() }}/property/delete/{{ room.id }}/{{ row.id }}" class="btn btn-xs btn-danger"> Hapus </a>
+			</td>
+			<td> {{ row.nama }} </td>
+			<td> {{ row.model }} </td>
+			<td> {{ row.tahun }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.jumlah }} </td>
+			<td> {{ row.keadaan }} </td>
+			<td> {{ row.keterangan }} </td>
+
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+{% endblock %}
+
+{% block display_print_url %} {{ base_url() }}/ruangan/print/{{ room.id }} {% endblock %}
+{% block add_url %} {{ base_url() }}/property/add/{{ room.id }} {% endblock %}
+{% block back_url %} {{ base_url() }}/ruangan/manage {% endblock %}

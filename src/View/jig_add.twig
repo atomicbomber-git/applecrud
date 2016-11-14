@@ -1,0 +1,109 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Tambahkan Jalan, Irigasi dan Bangunan {% endblock %}
+{% block legend %} Tambahkan Jalan, Irigasi dan Bangunan {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/jalan_irigasi_jaringan/add">
+		<table>
+			<tr>
+				<td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input type='text'  name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Register: </label> </td>
+				<td> <input type='text'  name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Konstruksi: </label> </td>
+				<td> <input type='text'  name='konstruksi'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Panjang (M): </label> </td>
+				<td> <input type='text'  name='panjang'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Lebar (M): </label> </td>
+				<td> <input type='text'  name='lebar'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas (M2): </label> </td>
+				<td> <input type='text'  name='luas'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Letak / Lokasi Alamat: </label> </td>
+				<td> <input type='text'  name='letak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tanggal: </label> </td>
+				<td> <input type='date'  name='tanggal'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor: </label> </td>
+				<td> <input type='text'  name='nomor'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Status Tanah: </label> </td>
+				<td> <input type='text'  name='hak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> No. Kode Tanah: </label> </td>
+				<td> <input type='text'  name='no_kode_tanah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input type='text'  name='asal_usul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Harga Perolehan: </label> </td>
+				<td> <input type='number'  name='harga'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input type='number' name='nilai_buku'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kondisi: </label> </td>
+				<td>
+					<select name="kondisi">
+						<option value="B"> B </option>
+						<option value="KB"> KB </option>
+						<option value="RB"> RB </option>
+						<option value="-"> - </option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Keterangan: </label> </td>
+				<td> <textarea name='keterangan'></textarea> </td>
+			</tr>
+		
+			<tr style="text-align: right"> 
+				<td colspan="2">
+					<a class='btn btn-danger' href='{{ base_url() }}/jalan_irigasi_jaringan/display_manage'> Kembali </a>
+					<input class='btn btn-primary' type='submit' value="Tambahkan Data">
+				</td>
+			</tr>		
+		</table>		
+	</form>
+{% endblock %}

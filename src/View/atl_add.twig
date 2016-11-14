@@ -1,0 +1,97 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Tambahkan Aset Tetap Lainnya {% endblock %}
+{% block legend %} Tambahkan Aset Tetap Lainnya {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/aset_tetap_lainnya/add">
+		<table>
+			<tr>
+				<td> <label> Nama Barang: </label> </td>
+				<td> <input type='text'  name='nama'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Register: </label> </td>
+				<td> <input type='text'  name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Judul / Pencipta: </label> </td>
+				<td> <input type='text'  name='judul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Spesifikasi: </label> </td>
+				<td> <input type='text'  name='spesifikasi'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal Daerah: </label> </td>
+				<td> <input type='text'  name='asal_daerah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Pencipta: </label> </td>
+				<td> <input type='text'  name='pencipta'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Bahan: </label> </td>
+				<td> <input type='text'  name='bahan'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Jenis: </label> </td>
+				<td> <input type='text'  name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Ukuran: </label> </td>
+				<td> <input type='text'  name='ukuran'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Jumlah: </label> </td>
+				<td> <input type='number'  name='jumlah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tahun Cetak: </label> </td>
+				<td> <input type='number'  name='tahun'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input type='text'  name='asal_usul'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Harga: </label> </td>
+				<td> <input type='number'  name='harga'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input type='number'  name='nilai'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Keterangan: </label> </td>
+				<td> <input type='text'  name='keterangan'> </td>
+			</tr>
+
+			<tr style="text-align: right"> 
+				<td colspan="2">
+					<a class='btn btn-danger' href='{{ base_url() }}/aset_tetap_lainnya/display_manage'> Kembali </a>
+					<input class='btn btn-primary' type='submit' value="Tambahkan Data">
+				</td>
+			</tr>
+		</table>		
+	</form>
+{% endblock %}

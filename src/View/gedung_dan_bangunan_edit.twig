@@ -1,0 +1,122 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Sunting Gedung dan Bangunan {% endblock %}
+{% block legend %} Sunting Gedung dan Bangunan {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/gedung_dan_bangunan/edit/{{ data.no }}">
+		<table>
+			<tr>
+				<td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input value="{{ data.jenis }}" type='text'  name='jenis'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kode Barang: </label> </td>
+				<td> <input value="{{ data.kode }}" type='text'  name='kode'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor Register: </label> </td>
+				<td> <input value="{{ data.register }}" type='text'  name='register'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Kondisi Bangunan: </label> </td>
+				<td>
+					<select name="kondisi">
+						<option value='B' {% if data.kondisi == "B" %} selected {% endif %}> B </option>
+						<option value='KB' {% if data.kondisi == "KB" %} selected {% endif %}> KB </option>
+						<option value='RB' {% if data.kondisi == "RB" %} selected {% endif %}> RB </option>
+						<option value='-' {% if data.kondisi == "-" %} selected {% endif %}> - </option>
+					</select>
+				</td> 
+			</tr>
+
+			<tr> 
+				<td> <label> Tingkat / Tidak: </label> </td>
+				<td>
+					<input type="radio" {% if data.tingkat == 1 %} checked {% endif %}name="tingkat" value="1"> Ya
+					<input type="radio" {% if data.tingkat == 0 %} checked {% endif %}name="tingkat" value="0"> Tidak
+					<input type="radio" {% if data.tingkat == 2 %} checked {% endif %}name="tingkat" value="2"> - (Kosong)
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Beton / Tidak: </label> </td>
+				<td>
+					<input type="radio" {% if data.beton == 1 %} checked {% endif %}name="beton" value="1"> Ya
+					<input type="radio" {% if data.beton == 0 %} checked {% endif %}name="beton" value="0"> Tidak
+					<input type="radio" {% if data.beton == 2 %} checked {% endif %}name="beton" value="2"> - (Kosong)
+				</td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas: </label> </td>
+				<td> <input value="{{ data.luas_lantai  }}" type='text'  name='luas_lantai'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Letak / Alamat: </label> </td>
+				<td> <input value="{{ data.letak  }}" type='text'  name='letak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Tanggal Pengadaan: </label> </td>
+				<td> <input value="{{ data.tanggal  }}" type='date'  name='tanggal'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor: </label> </td>
+				<td> <input value="{{ data.nomor  }}" type='text'  name='nomor'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Luas (M2): </label> </td>
+				<td> <input value="{{ data.luas  }}" type='number'  name='luas'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Status Tanah (Hak): </label> </td>
+				<td> <input value="{{ data.hak  }}" type='text'  name='hak'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Nomor Kode Tanah: </label> </td>
+				<td> <input value="{{ data.no_kode_tanah  }}" type='text'  name='no_kode_tanah'> </td>
+			</tr>
+
+			<tr>
+				<td> <label> Asal-Usul: </label> </td>
+				<td> <input value="{{ data.asal_usul  }}" type='text'  name='asal_usul'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Harga: </label> </td>
+				<td> <input value="{{ data.harga  }}" type='number' name='harga'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Jumlah Penyusutan: </label> </td>
+				<td> <input value="{{ data.jumlah_penyusutan  }}" type='number' name='jumlah_penyusutan'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Nilai Buku: </label> </td>
+				<td> <input value="{{ data.nilai_buku  }}" type='number' name='nilai_buku'> </td>
+			</tr>
+
+			<tr> 
+				<td> <label> Keterangan: </label> </td>
+				<td> <textarea name='keterangan'>{{ data.keterangan }}</textarea> </td>
+			</tr>
+
+				<tr style="text-align: right"> 
+					<td colspan="2">
+						<a class='btn btn-danger' href='{{ base_url() }}/gedung_dan_bangunan/display_manage'> Kembali </a>
+						<input class='btn btn-primary' type='submit' value="Ubah Data">
+					</td>
+				</tr>		
+		</table>		
+	</form>
+{% endblock %}

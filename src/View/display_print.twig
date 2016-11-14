@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> {% block title %} Tampilan Cetak  {% endblock %} </title>
+	</head>
+
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/inventory.css">
+
+	<body>
+		<table class="display-print-header">
+				<thead>
+					<tr>
+						<td width="30%" style="vertical-align: bottom">
+							<table>
+								<thead>
+									<tr>
+										<td> Unit / SKPD </td>
+										<td> : </td>
+										<td> {{ metadata.unit_skpd }} </td>
+									</tr>
+									<tr>
+										<td> Bidang Pemerintahan </td>
+										<td> : </td>
+										<td> {{ metadata.bidang_pemerintahan }} </td>
+									</tr>
+									<tr>
+										<td> Kepemilikan </td>
+										<td> : </td>
+										<td> {{ metadata.kepemilikan }} </td>
+									</tr>
+								</thead>
+							</table>
+						</td>
+						<td width="40%" style="text-align: center">
+							<img width="50px" height="auto" src="{{ base_url() }}/public/images/sintang.jpg">
+							<h4> PEMERINTAH KABUPATEN SINTANG </h4>
+							{% block card_title %} <h4> KARTU INVENTARIS BARANG (KIB) </h4> {% endblock %}
+							<h4> {% block card_name %} {% endblock %} </h4>
+						</td>
+						<td width="30%" style="vertical-align: bottom; text-align: right"> No. KODE LOKASI: {{ metadata.kode_lokasi }} </td>
+					</tr>
+				</thead>
+		</table>
+
+		<table class="inventory">
+			<thead> {% block table_header %} {% endblock %} </thead>
+			<tbody> {% block table_body %} {% endblock %} </tbody>
+			<tfoot> {% block table_footer %} {% endblock %} </tfoot>	
+		</table>
+
+		<table style="width: 100%; text-align: center; margin-top: 30px">
+			<tr> 
+				<td width="20%"> MENGETAHUI: </td>
+				<td width="60%"> </td>
+				<td width="20%"> {{ metadata.lokasi }}, {{ metadata.tanggal }} </td>
+			</tr>
+
+			<tr> 
+				<td width="20%" style="font-weight: bold"> {{ metadata.jabatan_signature_1 }}, </td>
+				<td width="60%"> </td>
+				<td width="20%" style="font-weight: bold"> {{ metadata.jabatan_signature_2 }}, </td>
+			</tr>
+
+			<tr style="height: 100px"> </tr>
+
+			<tr> 
+				<td width="20%" style="font-weight: bold"> ( {{ metadata.nama_signature_1 }} ) </td>
+				<td width="60%"> </td>
+				<td width="20%" style="font-weight: bold"> {{ metadata.nama_signature_2 }} </td>
+			</tr>
+
+			<tr> 
+				<td width="20%"> PEMBINA </td>
+				<td width="60%"> </td>
+				<td width="20%"> NIP: {{ metadata.nip_signature_2 }} </td>
+			</tr>
+
+			<tr> 
+				<td width="20%"> NIP: {{ metadata.nip_signature_1 }} </td>
+				<td width="60%"> </td>
+				<td width="20%">  </td>
+			</tr>
+		</table>
+
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title> Kartu Inventaris Barang dan Mesin </title>
+
+		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/inventory.css">
+
+		<style type="text/css">
+			body {
+				padding: 20px;
+			}
+
+			div.control_panel {
+				padding: 10px;
+			}
+
+			div.table-container {
+				height: 400px;
+				overflow: scroll;
+			}
+
+			.control_panel a.btn {
+				margin: 10px;
+			}
+
+			div#control-panel {
+				width: 450px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<h1 style="text-align: center; margin-bottom: 40px"> Panel Kendali {% block nama_kartu %} {% endblock %} </h1>
+
+		{% block control_box %}{% endblock %}
+
+		<div class="table-container">
+			<table class="inventory">
+				<thead>	{% block table_header %} {% endblock %} </thead>
+				<tbody>	{% block table_body %} {% endblock %} </tbody>
+				<tfoot>	{% block table_footer %} {% endblock %} </tfoot>
+			</table>
+		</div>
+
+		<div class="control_panel">
+			<a href="{% block display_print_url %} {% endblock %}" class="btn btn-warning pull-right"> Tampilan Cetak </a>
+			<a href="{% block add_url %} {% endblock %}" class="btn btn-primary pull-right"> Tambahkan Data Baru </a>
+			<a href="{% block back_url %} {{ base_url() }}/ {% endblock %}" class="btn btn-secondary pull-right"> Kembali </a>
+		</div>
+	</body>
+</html>

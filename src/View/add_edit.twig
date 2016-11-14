@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> {% block title %} {% endblock %} </title>
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+
+	<style>
+		td {
+			padding: 2px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<fieldset style="width: 390px; margin: auto">
+		<legend> {% block legend %} {% endblock %} </legend>
+
+		{% block form %} {% endblock %}
+
+	</fieldset>
+</body>
+
+</html>

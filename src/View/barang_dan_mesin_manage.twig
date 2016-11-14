@@ -1,0 +1,109 @@
+{% extends 'display_manage.twig' %}
+
+{% block nama_kartu %}
+	Kartu Inventaris Barang: B. Peralatan dan Mesin
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th rowspan="2"> Kendali </th>		
+		<th rowspan="2">Kode Barang</th>		
+		<th rowspan="2">Nama Barang / Jenis Barang</th>		
+		<th rowspan="2">Nomor Register</th>		
+		<th rowspan="2">Merek / Type</th>		
+		<th rowspan="2">Ukuran / CC</th>		
+		<th rowspan="2">Bahan</th>		
+		<th rowspan="2">Tahun Catat/Beli</th>		
+		<th colspan="5">Nomor</th>		
+		<th rowspan="2">Asal-Usul</th>		
+		<th rowspan="2">Masa Manfaat</th>		
+		<th rowspan="2">Sisa Umur</th>		
+		<th rowspan="2">Nilai Perolehan</th>		
+		<th rowspan="2">Jumlah Penyusutan</th>		
+		<th rowspan="2">Nilai Buku</th>		
+		<th rowspan="2">%</th>		
+		<th rowspan="2">Kondisi Barang</th>		
+		<th rowspan="2">Keterangan</th>		
+	</tr>
+
+	<tr>
+		<th> Pabrik </th>
+		<th> Rangka </th>
+		<th> Mesin </th>
+		<th> Polisi </th>
+		<th> BPKB </th>
+	</tr>
+
+	<tr>
+		<th> * </th>
+		<th> 2 </th>
+		<th> 3 </th>
+		<th> 4 </th>
+		<th> 5 </th>
+		<th> 6 </th>
+		<th> 7 </th>
+		<th> 8 </th>
+		<th> 9 </th>
+		<th> 10 </th>
+		<th> 11 </th>
+		<th> 12 </th>
+		<th> 13 </th>
+		<th> 14 </th>
+		<th> 15 </th>
+		<th> 16 </th>
+		<th> 17 </th>
+		<th> 18 </th>
+		<th> 19 </th>
+		<th> 20 </th>
+		<th>  </th>
+		<th> 21 </th>
+	</tr>
+{% endblock %}
+
+{% block table_body %}
+	{% for item in data %}
+			<tr {% if loop.last %} id="#last_item" {% endif %}>
+				<td style="min-width: 150px">
+					<a href="{{ base_url() }}/barang_dan_mesin/photo/{{ item.no }}" class="btn btn-xs btn-warning"> Foto </a>
+					<a href="{{ base_url() }}/barang_dan_mesin/edit/{{ item.no }}" class="btn btn-xs btn-success"> Sunting </a>
+					<a href="{{ base_url() }}/barang_dan_mesin/delete/{{ item.no }}" class="btn btn-xs btn-danger">
+						Hapus
+					</a>
+				</td>
+				<td> {{ item.kode }} </td>
+				<td> {{ item.nama }} </td>
+				<td> {{ item.no_register }} </td>
+				<td> {{ item.merek }} </td>
+				<td> {{ item.ukuran }} </td>
+				<td> {{ item.bahan }} </td>
+				<td> {{ item.tahun }} </td>
+				<td> {{ item.pabrik }} </td>
+				<td> {{ item.rangka }} </td>
+				<td> {{ item.mesin }} </td>
+				<td> {{ item.polisi }} </td>
+				<td> {{ item.bpkb }} </td>
+				<td> {{ item.asal_usul }} </td>
+				<td> {{ item.masa_manfaat }} </td>
+				<td> {{ item.sisa_umur }} </td>
+				<td> {{ item.nilai_perolehan }} </td>
+				<td> {{ item.jumlah_penyusutan }} </td>
+				<td> {{ item.nilai_buku }} </td>
+				<td> {{ item.persen }} </td>
+				<td> {{ item.kondisi_barang }} </td>
+				<td> {{ item.keterangan }} </td>
+			</tr>
+		{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class="no_border" colspan="11"> </td>
+		<td class="no_border" colspan="5"> TOTAL: </td>
+		<td> {{ total.nilai_perolehan }} </td>
+		<td> {{	total.jumlah_penyusutan }} </td>
+		<td> {{	total.nilai_buku }} </td>
+	</tr>
+{% endblock %}
+
+{% block display_print_url %} {{ base_url() }}/barang_dan_mesin/display_print {% endblock %}
+{% block add_url %} {{ base_url() }}/barang_dan_mesin/add {% endblock %}

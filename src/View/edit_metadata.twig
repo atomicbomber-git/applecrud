@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> {% block title %} {% endblock %} </title>
+		<link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+
+		<style>
+			td {
+				padding: 2px;
+			}
+
+			td:first-child {
+				text-align: right;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<fieldset style="width: 400px; margin: 50px auto 20px auto">
+			<legend> {% block legend %} {% endblock %} </legend>
+
+			<form action='{{ base_url() }}/edit_metadata/{{ metadata.id }}' method='POST'>
+				<table> 
+					<tr> <td> Unit / SKPD: </td> <td> <input value="{{ metadata.unit_skpd  }}" type="text" name="unit_skpd"> </td> </tr>
+					<tr> <td> Bidang Pemerintahan: </td> <td> <input value="{{ metadata.bidang_pemerintahan  }}" type="text" name="bidang_pemerintahan"> </td> </tr>
+					<tr> <td> Kepemilikan: </td> <td> <input value="{{ metadata.kepemilikan  }}" type="text" name="kepemilikan"> </td> </tr>
+					<tr> <td> Kode Lokasi: </td> <td> <input value="{{ metadata.kode_lokasi  }}" type="text" name="kode_lokasi"> </td> </tr>
+					<tr> <td> Jabatan Penandatangan 1: </td> <td> <input value="{{ metadata.jabatan_signature_1  }}" type="text" name="jabatan_signature_1"> </td> </tr>
+					<tr> <td> Jabatan Penandatangan 2: </td> <td> <input value="{{ metadata.jabatan_signature_2  }}" type="text" name="jabatan_signature_2"> </td> </tr>
+					<tr> <td> Nama Penandatangan 1: </td> <td> <input value="{{ metadata.nama_signature_1  }}" type="text" name="nama_signature_1"> </td> </tr>
+					<tr> <td> Nama Penandatangan 2: </td> <td> <input value="{{ metadata.nama_signature_2  }}" type="text" name="nama_signature_2"> </td> </tr>
+					<tr> <td> NIP Penandatangan 1: </td> <td> <input value="{{ metadata.nip_signature_1  }}" type="text" name="nip_signature_1"> </td> </tr>
+					<tr> <td> NIP Penandatangan 2: </td> <td> <input value="{{ metadata.nip_signature_2  }}" type="text" name="nip_signature_2"> </td> </tr>
+					<tr> <td> Lokasi: </td> <td> <input value="{{ metadata.lokasi  }}" type="text" name="lokasi"> </td> </tr>
+
+					<tr> <td> Tanggal: </td> <td> <input value="{{ metadata.tanggal  }}" type="date" name="tanggal"> </td> </tr>
+
+					<tr style="height: 50px"> </tr>
+
+					<tr>
+						<td colspan="2">
+							<a href="{{ base_url() }}/" class='btn btn-secondary'> Kembali ke Halaman Utama </a>
+							<button class='btn btn-primary'> Ubah </button>
+						</td>
+					</tr>
+				</table>
+			</form>
+
+		
+
+		{% if message_success %}
+			<div style="margin-top: 10px" class='alert alert-success'>
+				Data berhasil diubah
+			</div>
+		{% endif %}
+
+		</fieldset>
+	</body>
+</html>

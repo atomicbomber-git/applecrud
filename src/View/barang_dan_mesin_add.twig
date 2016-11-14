@@ -1,0 +1,80 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Tambahkan Peralatan dan Mesin {% endblock %}
+{% block legend %} Tambahkan Peralatan dan Mesin {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/barang_dan_mesin/add">
+		<table>
+			<tr> <td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  name='kode'> </td> </tr>
+
+			<tr> <td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input type='text'  name='nama'> </td> </tr>
+
+			<tr> <td> <label> Nomor Register: </label> </td>
+				<td> <input type='text'  name='no_register'> </td> </tr>
+
+			<tr> <td> <label> Merek / Type: </label> </td>
+				<td> <input type='text'  name='merek'> </td> </tr>
+
+				<tr> <td> <label> Ukuran / CC: </label> </td>
+				<td> <input type='text'  name='ukuran'> </td> </tr>
+
+				<tr> <td> <label> Bahan: </label> </td>
+				<td> <input type='text'  name='bahan'> </td> </tr>
+
+				<tr> <td> <label> Tahun Catat / Beli: </label> </td>
+				<td> <input type='number'  name='tahun'> </td> </tr>
+
+				<tr> <td> <label> Pabrik: </label> </td>
+				<td> <input type='text'  name='pabrik'> </td> </tr>
+
+				<tr> <td> <label> Rangka: </label> </td>
+				<td> <input type='text'  name='rangka'> </td> </tr>
+
+				<tr> <td> <label> Mesin: </label> </td>
+				<td> <input type='text'  name='mesin'> </td> </tr>
+
+				<tr> <td> <label> Polisi: </label> </td>
+				<td> <input type='text'  name='polisi'> </td> </tr>
+
+				<tr> <td> <label> BPKB: </label> </td>
+				<td> <input type='text'  name='bpkb'> </td> </tr>
+
+				<tr> <td> <label> Asal Usul: </label> </td>
+				<td> <input type='text'  name='asal_usul'> </td> </tr>
+
+				<tr> <td> <label> Masa Manfaat: </label> </td>
+				<td> <input type='number'  name='masa_manfaat'> </td> </tr>
+
+				<tr> <td> <label> Sisa Umur: </label> </td>
+				<td> <input type='number'  name='sisa_umur'> </td> </tr>
+
+				<tr> <td> <label> Nilai Perolehan: </label> </td>
+				<td> <input type='number'  name='nilai_perolehan'> </td> </tr>
+
+				<tr> <td> <label> Jumlah Penyusutan: </label> </td>
+				<td> <input type='number'  name='jumlah_penyusutan'> </td> </tr>
+
+				<tr> <td> <label> Nilai Buku: </label> </td>
+				<td> <input type='number'  name='nilai_buku'> </td> </tr>
+
+				<tr> <td> <label> Persen (%): </label> </td>
+				<td> <input type='number'  name='persen'> </td> </tr>
+
+				<tr> <td> <label> Kondisi Barang: </label> </td>
+				<td> <input type='text'  name='kondisi_barang'> </td> </tr>
+
+				<tr> <td> <label> Keterangan: </label> </td>
+				<td> <input type='text'  name='keterangan'> </td> </tr>
+
+				<tr style="text-align: right"> 
+					<td colspan="2">
+						<a class='btn btn-danger' href='{{ base_url() }}/barang_dan_mesin/display_manage'> Kembali </a>
+						<input class='btn btn-primary' type='submit' value="Tambahkan Data">
+					</td>
+				</tr>		
+		</table>		
+	</form>
+{% endblock %}

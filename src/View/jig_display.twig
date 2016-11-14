@@ -1,0 +1,77 @@
+{% extends 'display_print.twig' %}
+
+{% block name %} Kartu Inventaris Barang: D. Jalan, Irigasi dan Jaringan {% endblock %}
+
+{% block card_name %}
+	D. JALAN, IRIGASI DAN JARINGAN
+{% endblock %}
+
+{% block table_header %}
+	<tr>
+		<th rowspan="2"> No. </th>		
+		<th rowspan="2">Jenis Barang / Nama Barang</th>		
+		<th rowspan="1" colspan="2">Nomor</th>		
+		<th rowspan="2"> Konstruksi </th>	
+		<th rowspan="2"> Panjang (M) </th>	
+		<th rowspan="2"> Lebar (M) </th>	
+		<th rowspan="2"> Luas (M2)</th>	
+		<th rowspan="2"> Letak / Lokasi Alamat </th>
+		<th rowspan="1" colspan="2"> Dokumen </th>
+		<th rowspan="2"> Status Tanah </th>
+		<th rowspan="2"> Nomor Kode Tanah </th>
+		<th rowspan="2"> Asal-Usul </th>
+		<th rowspan="2"> Harga Perolehan </th>
+		<th rowspan="2"> Nilai Buku </th>
+		<th rowspan="2"> Kondisi (B, KB, RB) </th>
+		<th rowspan="2"> Ket. </th>
+
+	</tr>
+
+	<tr>
+		<th> Kode Barang </th>
+		<th> Register </th>
+		<th> Tanggal </th>
+		<th> Nomor </th>
+	</tr>
+
+	<tr>
+		{% for i in 1..18 %}
+			<th> {{ i }} </th>
+		{% endfor %}
+	</tr>
+
+{% endblock %}
+
+{% block table_body %}
+	{% for row in table %}
+		<tr>
+			<td> {{ loop.index }}</td>
+			<td> {{ row.jenis }} </td>
+			<td> {{ row.kode }} </td>
+			<td> {{ row.register }} </td>
+			<td> {{ row.konstruksi }} </td>
+			<td> {{ row.panjang }} </td>
+			<td> {{ row.lebar }} </td>
+			<td> {{ row.luas }} </td>
+			<td> {{ row.letak }} </td>
+			<td> {{ row.tanggal }} </td>
+			<td> {{ row.nomor }} </td>
+			<td> {{ row.hak }} </td>
+			<td> {{ row.no_kode_tanah }} </td>
+			<td> {{ row.asal_usul }} </td>
+			<td> {{ row.harga }} </td>
+			<td> {{ row.nilai_buku }} </td>
+			<td> {{ row.kondisi }} </td>
+			<td> {{ row.keterangan }} </td>
+		</tr>
+	{% endfor %}
+{% endblock %}
+
+{% block table_footer %}
+	<tr>
+		<td class="no_border" colspan="11"> </td>
+		<td class="no_border" style="text-align: center; font-weight: bold" colspan="3"> TOTAL: </td>
+		<td> {{ total.harga }} </td>
+		<td> {{ total.nilai_buku }} </td>
+	</tr>
+{% endblock %}

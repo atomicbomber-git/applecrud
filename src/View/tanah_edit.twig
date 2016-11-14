@@ -1,0 +1,57 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Sunting Data Tanah {% endblock %}
+{% block legend %} Sunting Data Tanah {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/tanah/edit/{{ data.no }}">
+		<table>
+
+			<tr> <td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input value="{{ data.nama }}" type='text'  name='nama'> </td> </tr>
+
+			<tr> <td> <label> Kode Barang: </label> </td>
+				<td> <input value="{{ data.kode }}" type='text'  name='kode'> </td> </tr>
+
+			<tr> <td> <label> Nomor Register: </label> </td>
+				<td> <input value="{{ data.register }}" type='text'  name='register'> </td> </tr>
+
+			<tr> <td> <label> Luas: </label> </td>
+				<td> <input value="{{ data.luas }}" type='number'  name='luas'> </td> </tr>
+
+				<tr> <td> <label> Tahun: </label> </td>
+				<td> <input value="{{ data.tahun }}" type='number'  name='tahun'> </td> </tr>
+
+				<tr> <td> <label> Letak: </label> </td>
+				<td> <input value="{{ data.letak }}" type='text'  name='letak'> </td> </tr>
+
+				<tr> <td> <label> Hak: </label> </td>
+				<td> <input value="{{ data.hak }}" type='text'  name='hak'> </td> </tr>
+
+				<tr> <td> <label> Tanggal Beli / Catat: </label> </td>
+				<td> <input value="{{ data.tanggal }}" type='date'  name='tanggal'> </td> </tr>
+
+				<tr> <td> <label> Nomor: </label> </td>
+				<td> <input value="{{ data.nomor }}" type='text'  name='nomor'> </td> </tr>
+
+				<tr> <td> <label> Penggunaan: </label> </td>
+				<td> <input value="{{ data.penggunaan }}" type='text'  name='penggunaan'> </td> </tr>
+
+				<tr> <td> <label> Asal-Usul: </label> </td>
+				<td> <input value="{{ data.asal_usul }}" type='text'  name='asal_usul'> </td> </tr>
+
+				<tr> <td> <label> Harga </label> </td>
+				<td> <input value="{{ data.harga }}" type='number'  name='harga'> </td> </tr>
+
+				<tr> <td> <label> Keterangan: </label> </td>
+				<td> <input value="{{ data.keterangan }}" type='text'  name='keterangan'> </td> </tr>
+
+				<tr style="text-align: right"> 
+					<td colspan="2">
+						<a class='btn btn-danger' href='{{ base_url() }}/tanah/display_manage'> Kembali </a>
+						<input class='btn btn-primary' type='submit' value="Ubah Data">
+					</td>
+				</tr>		
+		</table>		
+	</form>
+{% endblock %}

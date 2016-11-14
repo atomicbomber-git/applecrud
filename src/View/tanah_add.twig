@@ -1,0 +1,57 @@
+{% extends 'add_edit.twig' %}
+
+{% block title %} Tambahkan Tanah {% endblock %}
+{% block legend %} Tambahkan Tanah {% endblock %}
+
+{% block form %}
+	<form method='POST' action="{{ base_url() }}/tanah/add">
+		<table>
+			
+			<tr> <td> <label> Nama / Jenis Barang: </label> </td>
+				<td> <input type='text'  name='nama'> </td> </tr>
+
+			<tr> <td> <label> Kode Barang: </label> </td>
+				<td> <input type='text'  name='kode'> </td> </tr>
+
+			<tr> <td> <label> Nomor Register: </label> </td>
+				<td> <input type='text'  name='register'> </td> </tr>
+
+			<tr> <td> <label> Luas: </label> </td>
+				<td> <input type='number'  name='luas'> </td> </tr>
+
+				<tr> <td> <label> Tahun: </label> </td>
+				<td> <input type='number'  name='tahun'> </td> </tr>
+
+				<tr> <td> <label> Letak: </label> </td>
+				<td> <input type='text'  name='letak'> </td> </tr>
+
+				<tr> <td> <label> Hak: </label> </td>
+				<td> <input type='text'  name='hak'> </td> </tr>
+
+				<tr> <td> <label> Tanggal Beli / Catat: </label> </td>
+				<td> <input type='date'  name='tanggal'> </td> </tr>
+
+				<tr> <td> <label> Nomor: </label> </td>
+				<td> <input type='text'  name='nomor'> </td> </tr>
+
+				<tr> <td> <label> Penggunaan: </label> </td>
+				<td> <input type='text'  name='penggunaan'> </td> </tr>
+
+				<tr> <td> <label> Asal-Usul: </label> </td>
+				<td> <input type='text'  name='asal_usul'> </td> </tr>
+
+				<tr> <td> <label> Harga </label> </td>
+				<td> <input type='number'  name='harga'> </td> </tr>
+
+				<tr> <td> <label> Keterangan: </label> </td>
+				<td> <input type='text'  name='keterangan'> </td> </tr>
+
+				<tr style="text-align: right"> 
+					<td colspan="2">
+						<a class='btn btn-danger' href='{{ base_url() }}/tanah/display_manage'> Kembali </a>
+						<input class='btn btn-primary' type='submit' value="Tambahkan Data">
+					</td>
+				</tr>		
+		</table>		
+	</form>
+{% endblock %}
